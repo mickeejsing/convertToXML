@@ -1,5 +1,13 @@
 import { FormatConverter } from './src/FormatConverter.js'
+import fs from 'fs'
 
-let hej = new FormatConverter()
+try {
+    var data = fs.readFileSync('./data.txt', 'utf8')
+} catch (err) {
+    console.error(err)
+}
 
-hej.testPrint()
+const fc = new FormatConverter(data)
+const xml = fc.convertTextToTags()
+
+console.log(xml)
