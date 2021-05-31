@@ -1,0 +1,22 @@
+{
+  "name": "convert_to_xml",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mickeejsing/convertToXML.git"
+  },
+  "keywords": [],
+  "author": "Mikael Eriksson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mickeejsing/convertToXML/issues"
+  },
+  "homepage": "https://github.com/mickeejsing/convertToXML#readme"
+}
