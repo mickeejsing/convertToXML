@@ -9,11 +9,20 @@
   </head>
   <body>
     <header>
-      <h1>Formatförändraren</h1>
+      <h1>The format changer</h1>
     </header>
 
     <main>
-      <div id="wrapper"></div>
+      <div id="wrapper">
+        <div id="convertBox">
+          <form action="" method="POST">
+            <textarea
+              placeholder="Hi! In order to change the format of the text, just place it in the textarea. Then push the submit button."
+            ></textarea>
+            <input class="btn" type="submit" value="Convert to XML" />
+          </form>
+        </div>
+      </div>
     </main>
     <script nomodule src="build.js"></script>
   </body>

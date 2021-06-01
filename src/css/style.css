@@ -1,13 +1,12 @@
 /* Importerar ett typsnitt. */
-@import url("https://fonts.googleapis.com/css?family=Bebas+Neue|Open+Sans&display=swap");
+@import url("https://use.typekit.net/jva5nxp.css");
 
 /* Variabler */
 :root {
-  --main-color: #96c7c7;
-  --main-text-color: #545454;
-  --main-text: "Open Sans", sans-serif;
-  --main-heading: "Bebas Neue";
-  --sub-heading: "Bebas Neue";
+  --main-color: #dba988;
+  --main-text-color: #000000;
+  --main-text: futura-pt, sans-serif;
+  --main-heading: futura-pt, sans-serif;
 }
 
 h1 {
@@ -17,8 +16,9 @@ h1 {
   margin: 0;
   text-align: center;
   line-height: 180px;
-  font-weight: 100;
-  color: #4f8989;
+  font-weight: 600;
+  font-style: normal;
+  color: var(--main-text-color);
 }
 
 header {
@@ -33,4 +33,29 @@ header {
 
 body {
   background-color: var(--main-color);
+}
+
+#convertBox form textarea {
+  width: calc(70% - 20px);
+  height: 300px;
+  display: block;
+  margin: 0 auto;
+  resize: none;
+  padding: 10px;
+  font-size: 1em;
+}
+
+#convertBox form .btn {
+  background-color: var(--main-text-color);
+  color: white;
+  border: none;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 20px;
+  width: 70%;
+  font-family: var(--main-text);
+  font-size: 1.3em;
 }

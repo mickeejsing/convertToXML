@@ -1,5 +1,4 @@
 // Importerar.
-import { Form } from './Form.js'
+import { FormatChanger } from './FormatChanger.js'
 
-const form = new Form()
-form.addListening()
+const fc = new FormatChanger()
