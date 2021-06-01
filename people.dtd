@@ -1,0 +1,5 @@
+<!DOCTYPE note
+[
+<!ELEMENT people (person)>
+<!ELEMENT person (firstname,lastname,adress,phone,family)>
+]>
