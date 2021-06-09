@@ -22,6 +22,7 @@ class FormatChanger {
     } else {
       try {
         this.translateInput()
+        document.querySelector('#data').value = 'Your data was successfully converted.'
       } catch (error) {
         const textarea = document.querySelector('#data')
 
@@ -108,18 +109,23 @@ class FormatChanger {
       }
     })
 
-    console.log(xml)
     return xml
   }
 
-  iterateProps (prop) {
+  iterateProps (property) {
     let xml = ''
+    for (const prop in property) {
+      if (isNaN(prop)) {
+        xml += '<' + prop + '>'
+      }
 
-    if (typeof prop === 'object') {
-      for (const key in prop) {
-        console.log(prop[key])
-        xml += '<' + key + '>'
-        xml += '</' + key + '>'
+      if (typeof property[prop] === 'object') {
+        xml += this.iterateProps(property[prop])
+      } else {
+        xml += property[prop]
+      }
+      if (isNaN(prop)) {
+        xml += '</' + prop + '>'
       }
     }
 
