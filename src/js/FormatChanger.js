@@ -1,6 +1,5 @@
 import { Family } from './Family.js'
 import { Person } from './Person.js'
-// import { Family } from './Family.js'
 
 class FormatChanger {
   constructor () {
@@ -36,7 +35,13 @@ class FormatChanger {
     const persons = this.structureInformation()
 
     if (persons.length > 0) {
-      document.querySelector('#data').value = persons
+      let xml = ''
+
+      xml += '<people>'
+      xml += this.drawTreeStructure(persons)
+      xml += '</people>'
+
+      this.saveFile(xml)
     } else {
       throw new TypeError('Your data did not include any persons. Try again!')
     }
@@ -88,6 +93,52 @@ class FormatChanger {
     })
 
     return persons
+  }
+
+  drawTreeStructure (object) {
+    let xml = ''
+
+    object.forEach(property => {
+      if (typeof property !== 'string') {
+        xml += '<' + property.constructor.name.toLowerCase() + '>'
+
+        xml += this.iterateProps(property)
+
+        xml += '</' + property.constructor.name.toLowerCase() + '>'
+      }
+    })
+
+    console.log(xml)
+    return xml
+  }
+
+  iterateProps (prop) {
+    let xml = ''
+
+    if (typeof prop === 'object') {
+      for (const key in prop) {
+        console.log(prop[key])
+        xml += '<' + key + '>'
+        xml += '</' + key + '>'
+      }
+    }
+
+    return xml
+  }
+
+  saveFile (xml) {
+    const name = 'output.xml'
+    const link = document.createElement('a')
+    const blob = new window.Blob([xml], { type: 'text/plain' })
+
+    link.setAttribute('href', window.URL.createObjectURL(blob))
+    link.setAttribute('download', name)
+
+    link.dataset.downloadurl = ['text/plain', link.download, link.href].join(':')
+    link.draggable = true
+    link.classList.add('dragout')
+
+    link.click()
   }
 }
 
